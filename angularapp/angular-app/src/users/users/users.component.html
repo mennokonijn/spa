@@ -1,0 +1,43 @@
+<div>
+    <form #userForm="ngForm" (ngSubmit)="addUser(userForm)"  class="user-form-container">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" [(ngModel)]="newUser.username" required>
+            <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.submitted)">
+                <div class="error" *ngIf="userForm.controls['username'].hasError('required')">Username is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" [(ngModel)]="newUser.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+            <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.submitted)">
+                <div class="error" *ngIf="userForm.controls['email'].hasError('required')">Email is required.</div>
+                <div class="error" *ngIf="userForm.controls['email'].hasError('email')">Invalid email format.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" [(ngModel)]="newUser.age" required>
+        </div>
+        <div class="form-group">
+            <label for="verified">Verified</label>
+            <input type="checkbox" id="verified" name="verified" [(ngModel)]="newUser.verified">
+        </div>
+        <button type="submit">Add User</button>
+    </form>
+</div>
+<div class="list" *ngFor="let user of users">
+    <div class="list__item">
+        <div class="left-content">
+            <div class="id">{{ user.id }}</div>
+            <div class="name">{{ user.username }}</div>
+            <div class="mail">{{ user.email }}</div>
+        </div>
+        <div class="right-content">
+            <div class="date">{{ user.createdAt | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+            <div class="date">{{ user.updatedAt | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+            <div class="age">{{ user.age }}</div>
+            <input type="checkbox" [checked]="user.verified">
+        </div>
+    </div>
+</div>

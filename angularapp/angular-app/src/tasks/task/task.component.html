@@ -1,0 +1,12 @@
+<div class="tasks-container">
+    <h2>Task List</h2>
+    <ul class="task-list">
+        <li *ngFor="let task of tasks" class="task-item">
+            <div class="task-title">{{ task.title }}</div>
+            <div class="task-description">{{ task.description }}</div>
+            <div class="task-status">
+                Status: {{ task.completed ? 'Completed' : 'Incomplete' }}
+            </div>
+        </li>
+    </ul>
+</div>

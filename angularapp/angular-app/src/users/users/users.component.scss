@@ -1,0 +1,95 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+
+    &__item {
+        width: 100%;
+        background-color: darkslategray;
+        border-radius: 10px;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 16px;
+        padding: 0 32px;
+        color: white;
+        font-size: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+        .left-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex: 1;
+            margin-right: 16px;
+        }
+
+        .right-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .id {
+            width: 40px;
+        }
+
+        .name {
+            width: 200px;
+        }
+
+        .date {
+            width: 200px;
+        }
+
+        .age {
+            width: 50px;
+        }
+    }
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+}
+
+.user-form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 16px 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="checkbox"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
