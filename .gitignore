@@ -1,3 +1,3 @@
-#reactapp/my-app/node_modules
-#backend/node_modules
-#angularapp/angular-app/node_modules
+reactapp/my-app/node_modules
+backend/node_modules
+angularapp/angular-app/node_modules
