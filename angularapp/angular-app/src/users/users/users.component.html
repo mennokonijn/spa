@@ -3,14 +3,14 @@
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" [(ngModel)]="newUser.username" required>
-            <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.submitted)">
+            <div *ngIf="userForm.controls['username']?.invalid && (userForm.controls['username'].dirty || userForm.submitted)">
                 <div class="error" *ngIf="userForm.controls['username'].hasError('required')">Username is required.</div>
             </div>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" [(ngModel)]="newUser.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
-            <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.submitted)">
+            <div *ngIf="userForm.controls['email']?.invalid && (userForm.controls['email'].dirty || userForm.submitted)">
                 <div class="error" *ngIf="userForm.controls['email'].hasError('required')">Email is required.</div>
                 <div class="error" *ngIf="userForm.controls['email'].hasError('email')">Invalid email format.</div>
             </div>

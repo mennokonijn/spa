@@ -35,11 +35,14 @@ const Users = () => {
 
     const addNewUser = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const startProcessingTime = performance.now();
+
         try {
             const response = await addUser(newUser);
             console.log('User added successfully:', response);
+
             setNewUser({
-                id: 0,
+                id: users.length + 1,
                 username: '',
                 email: '',
                 createdAt: new Date(),
@@ -48,6 +51,10 @@ const Users = () => {
                 age: 0,
             });
             getRecentUsers();
+
+            const endProcessingTime = performance.now(); // Mark the end time
+            const processingTime = endProcessingTime - startProcessingTime;
+            console.log('addNewUser Processing Time:', processingTime, 'ms');
         } catch (error) {
             console.error(error);
         }

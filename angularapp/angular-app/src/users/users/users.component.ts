@@ -38,10 +38,16 @@ export class UsersComponent {
 
     addUser(userForm: NgForm) {
         if (userForm.valid) {
+            const startProcessingTime = performance.now();
+
             this.userService.addUser(this.newUser).subscribe((response) => {
                 console.log('User added successfully:', response);
                 this.newUser = { id: 0, username: '', email: '', createdAt: new Date(), updatedAt: new Date(), verified: false, age: 0 };
                 userForm.resetForm();
+
+                const endProcessingTime = performance.now(); // Mark the end time
+                const processingTime = endProcessingTime - startProcessingTime;
+                console.log('addNewUser Processing Time:', processingTime, 'ms');
                 this.ngOnInit();
             });
         }
